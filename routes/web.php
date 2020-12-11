@@ -14,8 +14,14 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/testpage', function () {
     return view('welcome');
 });
 
-Route::get('/test',[TestController::class, 'controllerMethod']);
+Route::get('/new',[TestController::class, 'controllerMethod']);
+
+
+// Route for anything that isnt the routes listed in here
+Route::any('{slug}', function(){
+        return view('welcome');
+});
